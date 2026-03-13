@@ -1,6 +1,4 @@
 """
-TASK ONE
-
 • Display a title stating: League registration.
 • Ask the player to enter: first name, last name, nickname, and email address.
 • Ask the player to enter a skill level, using E for ‘Expert’ or C for ‘Casual’.
@@ -13,19 +11,23 @@ display them again.
 • Return to the title message
 """
 
+#Set variables for later use
 details = False
 skill = ""
 valid = False
 
 print("League Registration\n====================")
 
+#Enter Registation process
 while details == False:
-    
+
+    #Ask user to input details
     nameF = input("Please enter your first name: ")
     nameL = input("Please enter your lase name: ")
     nameN = input("Please enter your nickname: ")
     email = input("Please enter your email address: ")
 
+    #Ask for skill level and check if valid
     while valid == False:
         skill = input("Please enter your skill level (C=Casual, E=Expert): ")
 
@@ -37,14 +39,17 @@ while details == False:
             valid = True
         else:
             print("Invalid, please re-enter")
-    
+
+    #Return the input user details
     print("\nYour Details:\n\nFirst Name: {}\nLast Name: {}\nNickname: {}\nEmail Address: {}\nSkill Level: {}" .format(nameF,nameL,nameN,email,skill))
-    
+
+    #Check if the details are correct
     correct = input("Please confirm all of these details are correct (Y/N): ")
     
     if correct == "Y":
-        details = True
+        details = True #Exit if details are correct
     else:
         print("Please re-enter details:\n")
 
 print("\nLeague Registration Completed")
+#End of Program
