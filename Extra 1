@@ -1,4 +1,6 @@
 """
+TASK ONE
+
 • Display a title stating: League registration.
 • Ask the player to enter: first name, last name, nickname, and email address.
 • Ask the player to enter a skill level, using E for ‘Expert’ or C for ‘Casual’.
@@ -12,20 +14,37 @@ display them again.
 """
 
 details = False
+skill = ""
+valid = False
+
+print("League Registration\n====================")
 
 while details == False:
-  
-  print("League Registration\n====================")
-  
-  nameF = input("Please enter your first name: ")
-  nameL = input("Please enter your lase name: ")
-  nameN = input("Please enter your nickname: ")
-  email = input("Please enter your email address: ")
-  skill = input("Please enter your skill level (C=Casual, E=Expert): ")
-  
-  print("Your Details:\nFirst Name: {}\nLast Name: {}\nNickname: {}\nEmail Address: {}\nSkill Level: {}" .format(nameF,nameL,nameN,email,skill))
-  
-  correct = input("Please confirm all of these details are correct (Y/N): ")
-  
-  if correct == "Y":
-    details = True
+    
+    nameF = input("Please enter your first name: ")
+    nameL = input("Please enter your lase name: ")
+    nameN = input("Please enter your nickname: ")
+    email = input("Please enter your email address: ")
+
+    while valid == False:
+        skill = input("Please enter your skill level (C=Casual, E=Expert): ")
+
+        if skill == "C":
+            skill = "Casual"
+            valid = True
+        elif skill == "E":
+            skill = "Expert"
+            valid = True
+        else:
+            print("Invalid, please re-enter")
+    
+    print("\nYour Details:\n\nFirst Name: {}\nLast Name: {}\nNickname: {}\nEmail Address: {}\nSkill Level: {}" .format(nameF,nameL,nameN,email,skill))
+    
+    correct = input("Please confirm all of these details are correct (Y/N): ")
+    
+    if correct == "Y":
+        details = True
+    else:
+        print("Please re-enter details:\n")
+
+print("\nLeague Registration Completed")
