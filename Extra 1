@@ -79,3 +79,48 @@ Fee calculator requirements
 abbreviations: USD, AUD, GBP.
 • It should then ask if the user wishes to calculate another fee
 """
+
+#Create initial variables & lists
+entryFees = [10,20,35]
+useComplete = False
+sValid = False
+supportedCountries = ['UK','US','AU']
+
+print("Welcome to the fee calculator. Please fill in the fields below:\n================================================================\n")
+
+#Start Program
+while useComplete == False:
+
+    #Obtain details from user
+    email = input("Please enter your email address: ")
+
+    #Ask for skill level and check if valid
+    while sValid == False:
+        skill = input("Please enter your skill level (C=Casual, E=Expert): ")
+
+        if skill == "C":
+            skill = "Casual"
+            sValid = True
+        elif skill == "E":
+            skill = "Expert"
+            sValid = True
+        else:
+            print("Invalid, please re-enter")
+
+    #Ask for country and check if valid
+    country = input("Please enter your country (UK/US/AU): ")
+    
+    if not country in supportedCountries:
+        print("Sorry this calculator does not support your country's currency")
+        break
+
+    #Calculate fee
+    fee = entryFees[0]
+
+    #Add skill level fee
+    if skill == "C":
+        fee += entryFees[1]
+    elif skill == "E":
+        fee += entryFees[2]
+
+    #Convert to correct currency
