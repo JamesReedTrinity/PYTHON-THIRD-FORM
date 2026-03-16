@@ -83,7 +83,6 @@ abbreviations: USD, AUD, GBP.
 #Create initial variables & lists
 entryFees = [10,20,35]
 useComplete = False
-sValid = False
 supportedCountries = ['UK','US','AU']
 
 print("Welcome to the fee calculator. Please fill in the fields below:\n================================================================\n")
@@ -92,9 +91,10 @@ print("Welcome to the fee calculator. Please fill in the fields below:\n========
 while useComplete == False:
 
     #Obtain details from user
-    email = input("Please enter your email address: ")
+    email = input("\nPlease enter your email address: ")
 
     #Ask for skill level and check if valid
+    sValid = False
     while sValid == False:
         skill = input("Please enter your skill level (C=Casual, E=Expert): ")
 
@@ -123,4 +123,18 @@ while useComplete == False:
     elif skill == "E":
         fee += entryFees[2]
 
-    #Convert to correct currency
+    #Convert to correct currency and display to user
+    if country == "US":
+        fee *= 1.5
+        print("Your entry fee is: {}USD" .format(fee))
+    elif country == "AU":
+        fee *= 2
+        print("Your entry fee is: {}AUD" .format(fee))
+    else:
+        print("Your entry fee is: {}GBP" .format(fee))
+
+    #Ask user if they want to calculate another fee
+    again = input("Would you like to use the fee calculator again (Y/N): ")
+
+    if again == "N":
+        break
