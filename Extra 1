@@ -138,3 +138,21 @@ while useComplete == False:
 
     if again == "N":
         break
+"""
+Test Plan:
+To test this calculator I will make a program which will display the expected
+results of a casual or expert player, along with the results provided by the
+calculator, and if there are any differences I will update the code to work
+correctly
+
+Evaluation:
+This code meets the criteria as it succesfully completes all tasks assigned to
+it. It takes in the user's email, skill level and country, then calculates a
+fee in the correct currency based on the player's skill level and country.
+
+The calculator works out the fee by using the data provided in the  entryFees list. Item 0 of the list is the
+starting fee, which the fee variable is set to at the start of the calculator. Item 1 is the Casual increase,
+and item 2 is the Expert increase, which are added depending on if the user inputs C or E for skill level.
+After the original value is calculated in GBP, the calculator changes it to the correct currency by multiplying
+the value so as each 1GBP is equivalent to the new value in the other currency.
+"""
